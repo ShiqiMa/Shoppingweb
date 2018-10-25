@@ -17,5 +17,6 @@ from django.urls import path, include
 
 
 urlpatterns = [
-    path('', include('apps.home.urls'))
+    path('', include('apps.home.urls')),
+    path('cms/', include('apps.cms.urls'))
 ]
