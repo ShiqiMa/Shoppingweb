@@ -20,6 +20,6 @@ from apps.home import views
 
 urlpatterns = [
     path('', views.index, name='index'),
-    path('products/', include('apps.home.urls')),
+    path('product/', include('apps.home.urls')),
     path('admin/', include('apps.cms.urls'))
 ]+ static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
