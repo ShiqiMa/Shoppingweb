@@ -114,11 +114,11 @@ class ProductsListView(View):
         end = request.GET.get('end')
         name = request.GET.get('name')
         category_id = int(request.GET.get('category', 0) or 0)
-        products = Products.objects.select_related('category').all()
+        productses = Products.objects.select_related('category').all()
         if name:
-            productses = products.filter(name__icontains=name)
+            productses = productses.filter(name__icontains=name)
         if category_id:
-            productses = products.filter(category=category_id)
+            productses = productses.filter(category=category_id)
 
         paginator = Paginator(productses, 2)
         page_obj = paginator.page(page)
@@ -127,7 +127,7 @@ class ProductsListView(View):
 
         context = {
             'categories': ProductCategory.objects.all(),
-            'products': page_obj.object_list,
+            'productses': page_obj.object_list,
             'page_obj': page_obj,
             'paginator': paginator,
             'start': start,
