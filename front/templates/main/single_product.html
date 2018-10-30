@@ -8,6 +8,9 @@
     <link rel="stylesheet" href="{% static 'css/single.min.css' %}">
     <link rel="stylesheet" href="//at.alicdn.com/t/font_756254_fktvmzn7o2i.css">
     <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="{% static 'js/shoppingweb_ajax.min.js' %}"></script>
+    <script src="{% static 'js/shoppingweb_alert.min.js' %}"></script>
+    <script src="{% static 'arttemplate/template-web.js' %}"></script>
     <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
     <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <script src="{% static 'js/index.min.js' %}"></script>
@@ -19,11 +22,10 @@
                 <a href="/"></a>
             </div>
             <ul class="nav-top">
-                <li class="active"><a href="#">Main Page</a></li>
-                <li><a href="#">Household</a></li>
-                <li><a href="#">Clothing,Shoes&Accessories</a></li>
-                <li><a href="#">Food</a></li>
-                <li><a href="#">Books</a></li>
+                <li data-category="0" class="active"><a href="{% url 'index' %}">Main page</a></li>
+                {% for category in categories %}
+                    <li data-category="{{ category.pk }}"><a href="{% url 'index' %}">{{ category.name }}</a></li>
+                {% endfor %}
             </ul>
             <div class="auth-box">
                 <i class="icon-customer iconfont"></i>
@@ -41,14 +43,14 @@
         </div>
         <div class="single-product">
             <div class="single-product-thumbnail">
-                <img src="{% static 'images/p1.jpg' %}" alt="">
+                <img src="{{ product.thumbnail }}" alt="">
             </div>
             <div class="single-product-info">
-                <p class="p-title">維他 檸檬茶250ML*24盒/箱 真茶真檸檬</p>
-                <p class="p-seller">自营
+                <p class="p-title">{{ product.name }}</p>
+                <p class="p-seller">{{ product.desc }}
                     <button type="button" class="btn btn-primary btn-add-product">Add</button>
                 </p>
-                <span class="p-price">￥9.9</span>
+                <span class="p-price">￥{{ product.price }}</span>
             </div>
         </div>
     </div>
