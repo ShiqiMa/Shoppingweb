@@ -1,5 +1,5 @@
 # Shoppingweb
-An online shopping website using Django
+An online shopping website using Django and nginx
 
 
 
