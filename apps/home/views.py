@@ -43,6 +43,15 @@ def products_list(request):
     return restful.result(data=data)
 
 
+def shoppingcart_list(request):
+    name = request.GET.get('name')
+    price = request.GET.get('price')
+    product_item = Products.objects.filter(name=name, price=price)
+    serializer = ProductsSerializer(product_item)
+    data = serializer.data
+    return restful.result(data=data)
+
+
 
 def single_product(request, products_id):
     try:

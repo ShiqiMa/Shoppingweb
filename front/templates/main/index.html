@@ -30,6 +30,21 @@
 {{ /each }}
 {% endverbatim %}
 </script>
+{#<script id="shoppingcart-item" type="text/html">#}
+{#{% verbatim %}#}
+{#{{ if product }}#}
+{#<li>#}
+{#    <span>商品：{{ product.name }}</span>#}
+{#    <span>价格：{{ product.price }}</span>#}
+{#    <span>数量：#}
+{#        <button type="button" class="btn btn-success">﹣</button>#}
+{#        <input type="text" class="form-control" id="exampleInputAmount" placeholder="Amount">#}
+{#        <button type="button" class="btn btn-success">﹢</button>#}
+{#    </span>#}
+{#</li>#}
+{#{{ /if }}#}
+{#{% endverbatim %}#}
+{#</script>#}
 </head>
 <body>
     <header class="header">
@@ -50,6 +65,21 @@
             </div>
             <div class="shopping-cart">
                 <i class="icon-gouwuche iconfont cart-pointer"></i>
+                <div class="hover-shopping-cart">
+                    <ul class="shoppingcart-list">
+                        <li class="shoppingcart-item">
+                            商品：<span class="sp-name"></span>
+                            价格：<span class="sp-price"></span>
+                            <div>数量：
+                                <div>
+                                <button type="button" class="btn btn-success">﹣</button>
+                                <input type="text" class="form-control" placeholder="Amount" style="width:200px;">
+                                <button type="button" class="btn btn-success">﹢</button></p>
+                            </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
     </header>
@@ -92,8 +122,8 @@
                             <a href="{% url 'home:single_product' products_id=products.pk %}"><img src="{{ products.thumbnail }}" alt=""></a>
                         </div>
                         <div class="product-info">
-                            <p><a href="{% url 'home:single_product' products_id=products.pk %}">{{ products.name }}</a></p>
-                            <p>{{ products.desc }}<button type="button" class="btn btn-primary">Add</button></p>
+                            <p class="product-name"><a href="{% url 'home:single_product' products_id=products.pk %}">{{ products.name }}</a></p>
+                            <p>{{ products.desc }}<button type="button" class="btn btn-primary" id="add-item-btn">Add</button></p>
                             ￥<span class="price">{{ products.price }}</span>
                         </div>
                         </li>
