@@ -21,5 +21,6 @@ from apps.home import views
 urlpatterns = [
     path('', views.index, name='index'),
     path('product/', include('apps.home.urls')),
-    path('admin/', include('apps.cms.urls'))
+    path('admin/', include('apps.cms.urls')),
+    path('account/', include("apps.shoppingweb_auth.urls")),
 ]+ static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
