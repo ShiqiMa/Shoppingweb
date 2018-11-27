@@ -38,9 +38,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    'bootstrap3',
     'apps.home',
     'apps.cms',
-    'apps.shoppingweb_auth'
+    'apps.shoppingweb_auth',
+    'apps.cart'
 ]
 
 MIDDLEWARE = [
@@ -67,6 +69,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+
+                'apps.cart.context_processors.cart'
             ],
             'builtins': [
                 'django.templatetags.static'
@@ -142,3 +146,5 @@ STATICFILES_DIRS = [
 ]
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static_dist')
+
+CART_SESSION_ID = 'cart'

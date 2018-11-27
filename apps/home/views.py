@@ -3,6 +3,7 @@ from .models import Products, ProductCategory
 from django.conf import settings
 from utils import restful
 from .serializers import ProductsCategorySerializer, ProductsSerializer
+from apps.cart.forms import CartAddProductForm
 from django.http import Http404
 
 
@@ -21,9 +22,11 @@ def products(request):
     count = settings.ONE_PAGE_PRODUCTS_COUNT
     productses = Products.objects.select_related('category').all()[0:count]
     categories = ProductCategory.objects.all()
+    cart_product_form = CartAddProductForm()
     context = {
         'productses': productses,
-        'categories': categories
+        'categories': categories,
+        'cart_product_form': cart_product_form
     }
     return render(request, 'main/product_detail.html', context=context)
 
@@ -57,10 +60,12 @@ def single_product(request, products_id):
     try:
         product = Products.objects.select_related('category').get(pk=products_id)
         categories = ProductCategory.objects.all()
+        cart_product_form = CartAddProductForm()
         context = {
             'product': product,
-            'categories': categories
+            'categories': categories,
+            'cart_product_form': cart_product_form
         }
         return render(request, 'main/single_product.html', context=context)
-    except News.DoesNotExist:
+    except Products.DoesNotExist:
         raise Http404
