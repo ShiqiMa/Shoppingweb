@@ -17,6 +17,8 @@ An online shopping website using Django and nginx
 
 7. /admin/products_list/：商品列表页
 
+8. /cart/：购物车详情页
+
 
 ### 安全防御处理：
 
