@@ -42,7 +42,9 @@ INSTALLED_APPS = [
     'apps.home',
     'apps.cms',
     'apps.shoppingweb_auth',
-    'apps.cart'
+    'apps.cart',
+    'apps.orders',
+    # 'papal.standard.ipn'
 ]
 
 MIDDLEWARE = [
@@ -80,6 +82,13 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'shoppingweb.wsgi.application'
+
+# set to receive email in the backends
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+# django-paypal settings
+PAYPAL_RECEIVER_EMAIL = 'mashiqinc-facilitator@163.com'
+PAYPAL_TEST = True
 
 
 # Database
