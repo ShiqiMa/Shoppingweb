@@ -44,7 +44,8 @@ INSTALLED_APPS = [
     'apps.shoppingweb_auth',
     'apps.cart',
     'apps.orders',
-    # 'papal.standard.ipn'
+    'paypal.standard.ipn',
+    'apps.payment'
 ]
 
 MIDDLEWARE = [
