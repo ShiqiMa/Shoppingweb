@@ -14,4 +14,5 @@ urlpatterns = [
     path('orders/', include('apps.orders.urls', namespace='orders')),
     path('paypal/', include('paypal.standard.ipn.urls')),
     path('payment/', include('apps.payment.urls', namespace='payment')),
+    path('buyers/', include('apps.buyers.urls', namespace='buyers'))
 ]+ static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

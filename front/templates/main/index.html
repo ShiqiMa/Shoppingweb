@@ -50,6 +50,15 @@
 {#</script>#}
 </head>
 <body>
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = 'https://connect.facebook.net/zh_CN/sdk.js#xfbml=1&version=v3.2';
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+    </script>
     <header class="header">
         <div class="container">
             <div class="logo-box">
@@ -154,7 +163,9 @@
         </div>
     </div>
     <footer class="footer">
-        <div class="trademark">©2018 SHIQI shop welcome</div>
+        <div class="trademark">©2018 SHIQI shop welcome
+            <div style="float: right;" class="fb-share-button" data-href="https://www.facebook.com/" data-layout="button" data-size="large" data-mobile-iframe="true"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.facebook.com%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">分享</a></div>
+        </div>
     </footer>
     <div class="mask-wrapper">
         <div class="auth-wrapper">
