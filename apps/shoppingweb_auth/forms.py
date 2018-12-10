@@ -9,7 +9,7 @@ class LoginForm(forms.Form,FormMixin):
 
 
 class RegisterForm(forms.Form,FormMixin):
-    email = forms.CharField(max_length=11)
+    email = forms.CharField(max_length=40)
     username = forms.CharField(max_length=20)
     password1 = forms.CharField(max_length=20, min_length=6,
                                error_messages={"max_length": "密码最多不能超过20个字符！", "min_length": "密码最少不能少于6个字符！"})
