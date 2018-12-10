@@ -7,8 +7,10 @@ from django.views.decorators.http import require_POST, require_GET
 from django.core.paginator import Paginator
 from urllib import parse
 import os
+from django.contrib.admin.views.decorators import staff_member_required
 from django.conf import settings
 
+@staff_member_required(login_url='index')
 def index(request):
     return render(request, 'admin/index.html')
 
