@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '1pbf9fpop&22&e))(hrz3ajsc96dizy0ay)cawtjk(c29nv9&p'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1', '13.59.189.128', 's61.ierg4210.ie.cuhk.edu.hk', 'secure.s61.ierg4210.ie.cuhk.edu.hk']
 

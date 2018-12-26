@@ -60,7 +60,7 @@ def register(request):
 
 
 def cache_test(request):
-    cache.set('username','zhiliao',60)
+    cache.set('username','msq',60)
     result = cache.get('username')
     print(result)
     return HttpResponse('success')
